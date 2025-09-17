@@ -151,8 +151,10 @@ class FootballNewsFunctionalTest(LiveServerTestCase):
 
         # Go to create news page
         # add_button = self.browser.find_element(By.XPATH, "//button[contains(text(), 'Add News')]")
-        add_button = self.browser.find_element(By.PARTIAL_LINK_TEXT, "Add News")
-        add_button.click()
+        # add_button = self.browser.find_element(By.XPATH, "//button[contains(text(), 'Add News') or contains(text(), '+ Add News')]")
+        # add_button.click()
+        add_link = WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[.//button[contains(text(), 'Add News') or contains(text(), '+ Add News')]]")))
+        add_link.click()
 
         # Fill form
         title_input = self.browser.find_element(By.NAME, "title")
