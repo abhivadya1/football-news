@@ -255,14 +255,14 @@ function initializeNewsPage() {
   fetchNewsFromServer();
 }
 
+// Start application
+initializeNewsPage();
+
 // Add event listener to detect new news
 document.addEventListener('newsAdded', function() {
     // Refresh data without page reload
     fetchNewsFromServer();
 });
-
-// Start application
-initializeNewsPage();
 </script>
 
 {% endblock content %}
